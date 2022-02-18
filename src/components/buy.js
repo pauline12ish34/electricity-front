@@ -1,117 +1,117 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import axios from 'axios';
+// import React from 'react';
+// import { Formik, Form, Field } from 'formik';
+// import axios from 'axios';
 
- import * as Yup from 'yup';
+//  import * as Yup from 'yup';
 
- state = {
-    meter: '',
-    money: '',
-  }
+//  state = {
+//     meter: '',
+//     money: '',
+//   }
 
-  handleChange = event => {
-    this.setState({ meter: event.target.meter },{money: event.target.value});
-  }
+//   handleChange = event => {
+//     this.setState({ meter: event.target.meter },{money: event.target.value});
+//   }
 
-  handleSubmit = event => {
-    event.preventDefault();
+//   handleSubmit = event => {
+//     event.preventDefault();
 
-    const transac = {
-      meter: this.state.meter,
-      money: this.state.money
-    };
+//     const transac = {
+//       meter: this.state.meter,
+//       money: this.state.money
+//     };
 
-    axios.post(`http://localhost:8080`, { transactionSchema })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-  }
-
-
- const getToken=()=>{
+//     axios.post(`http://localhost:8080`, { transactionSchema })
+//       .then(res => {
+//         console.log(res);
+//         console.log(res.data);
+//       })
+//   }
 
 
- }
+//  const getToken=()=>{
 
 
- const transactionSchema = Yup.object().shape({
+//  }
 
-   money: Yup.string()
 
-     .min(5, 'Too Short!')
-     .max(50, 'Too Long!')
-     .required('Required'),
+//  const transactionSchema = Yup.object().shape({
 
-   meter: Yup.string()
+//    money: Yup.string()
 
-     .min(5, 'Too Short!')
-     .max(50, 'Too Long!')
-     .required('Required'),
+//      .min(5, 'Too Short!')
+//      .max(50, 'Too Long!')
+//      .required('Required'),
+
+//    meter: Yup.string()
+
+//      .min(5, 'Too Short!')
+//      .max(50, 'Too Long!')
+//      .required('Required'),
 
    
 
 
 
- });
+//  });
 
  
 
- export const FormBuy = () => (
+//  export const FormBuy = () => (
 
-   <div>
+//    <div>
 
-     <h1>Buy Electricity</h1>
+//      <h1>Buy Electricity</h1>
 
-     <Formik
+//      <Formik
 
-       initialValues={{
-         meter: '',
-         money: '',
-       }}
+//        initialValues={{
+//          meter: '',
+//          money: '',
+//        }}
 
-       validationSchema={transactionSchema}
+//        validationSchema={transactionSchema}
 
-       onSubmit={values => {
+//        onSubmit={values => {
 
-         // same shape as initial values
+//          // same shape as initial values
 
-         console.log(values);
+//          console.log(values);
 
-       }}
+//        }}
 
-     >
+//      >
 
-       {({ errors, touched }) => (
+//        {({ errors, touched }) => (
 
-         <Form>
+//          <Form>
 
-           <Field name="meter" placeholder="meter number"/>
+//            <Field name="meter" placeholder="meter number"/>
 
-           {errors.meter && touched.meter ? (
+//            {errors.meter && touched.meter ? (
 
-             <div>{errors.meter}</div>
+//              <div>{errors.meter}</div>
 
-           ) : null}
+//            ) : null}
 
-           <Field name="money" />
+//            <Field name="money" />
 
-           {errors.money && touched.money ? (
+//            {errors.money && touched.money ? (
 
-             <div>{errors.money}</div>
+//              <div>{errors.money}</div>
 
-           ) : null}
+//            ) : null}
 
           
 
-           <button type="submit" className='bg-green text-white'>Submit</button>
+//            <button type="submit" className='bg-green text-white'>Submit</button>
 
-         </Form>
+//          </Form>
 
-       )}
+//        )}
 
-     </Formik>
+//      </Formik>
 
-   </div>
+//    </div>
 
- );
+//  );

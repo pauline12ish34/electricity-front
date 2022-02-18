@@ -12,7 +12,7 @@ import axios from 'axios';
       componentDidMount() {
         axios.get("http://localhost:8080")
           .then(res => {
-            const persons = res.data;
+            const transactions = res.data;
             this.setState({ transactions });
           })
       }
@@ -33,8 +33,8 @@ import axios from 'axios';
                 {
                     
           this.state.persons
-            .map(person =>
-              <td key={transaction.token}>{transaction.token,transaction.meter, transaction.money , transaction.status, transaction.dateExp}</td>
+            .map(transaction =>
+              <td key={transaction.token}>{transaction.token},{transaction.meter}, {transaction.money} , {transaction.status}, {transaction.dateExp}</td>
             )
         }</tr>
             </table>
